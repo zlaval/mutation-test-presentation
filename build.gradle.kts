@@ -37,10 +37,9 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 configure<info.solidsoft.gradle.pitest.PitestPluginExtension> {
     junit5PluginVersion.set("0.12")
     avoidCallsTo.set(setOf("kotlin.jvm.internal"))
-    mutators.set(setOf("ALL"))
+    mutators.set(setOf("STRONGER")) //DEFAULTS,STRONGER,ALL, ("NON_VOID_METHOD_CALLS","OBBN","UOI3"),"UOI1"
     targetClasses.set(setOf("com.zlrx.*"))
     targetTests.set(setOf("com.zlrx.*"))
-//    pitestVersion.set("1.4.0")
     threads.set(Runtime.getRuntime().availableProcessors())
     outputFormats.set(setOf("XML", "HTML"))
 }
